@@ -2,8 +2,7 @@
     {"tag": "greetings",
 
     "patterns": ["hello", "Welcome", "Hi!", "Hi there", "Good morning", 
-                    "Good afternoon", "Good evening", "good day",
-                    "What’s up?", "How’s it going?"],
+                    "Good afternoon", "Good evening"],
 
     "responses": ["Hello! How can I assist you today?", "How may I help you?", 
                     "How can I assist?", "What can I do for you?",

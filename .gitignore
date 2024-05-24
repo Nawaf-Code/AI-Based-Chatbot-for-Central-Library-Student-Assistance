@@ -2,3 +2,5 @@
 words.pkl
 classes.pkl
 chatbotModel.h5
+chatbotModel2.h5
+training.py

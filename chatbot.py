@@ -36,7 +36,8 @@ def bag_of_words(sentence):
 
 def predict_class(sentence):
     BOW = bag_of_words(sentence)
-    res = model.predict(np.array([BOW]))[0]
+    BOW = np.reshape(BOW, (1, 1, len(BOW)))  # Reshape for LSTM input
+    res = model.predict(BOW)[0]
     ERROR_THRESHOLD = 0.25
     results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
 
@@ -46,7 +47,6 @@ def predict_class(sentence):
         return_list.append({'intent': classes[r[0]], 'probability': str(r[1])})
 
     return return_list
-
 
 def get_response(intents_list, intents_json):
     tag = intents_list[0]['intent']
@@ -59,10 +59,10 @@ def get_response(intents_list, intents_json):
     
     return result
 
-print("How can i help you?")
+print("How can I help you?")
 
 while True:
-    message = input("")
+    message = input("\n Write Your Answer Here: ")
     ints = predict_class(message)
     res = get_response(ints, intents)
-    print(res)
+    print("\n Chatbot Answer: "+res)
